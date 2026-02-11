@@ -135,9 +135,25 @@ nav a {
   transform:translateY(-8px);
 }
 
-.s {
-  background:#f5f5f5;
+.stats {
+  position: relative;
+  background: url('stats-bg.jpg') center/cover no-repeat;
+  padding: 140px 0;
+  color: white;
 }
+
+.stats::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.65);
+}
+
+.stats .container {
+  position: relative;
+  z-index: 2;
+}
+
 
 .stat-number {
   font-size:48px;
@@ -162,6 +178,65 @@ footer {
   .hero h1{font-size:36px;}
 }
 
+  .dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  background: white;
+  min-width: 260px;
+  border-radius: 12px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+  padding: 15px 0;
+  opacity: 0;
+  transform: translateY(15px);
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 12px 20px;
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+.dropdown-menu a:hover {
+  background: #f5f5f5;
+  color: #C73A3A;
+}
+
+.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.card {
+  background: white;
+  padding: 50px 30px;
+  border-radius: 16px;
+  width: 320px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.06);
+  transition: all 0.4s ease;
+  border: 1px solid rgba(0,0,0,0.03);
+}
+
+.card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+}
+
+.icon {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
 </style>
 </head>
 
@@ -169,9 +244,20 @@ footer {
 
 <nav>
   <div class="container">
-   <img src="logo.png" alt="Kızılay Trust Logo" style="height:40px;">
+   <img src="logo.png.png" alt="Kızılay Trust Logo" style="height:40px;">
     <div>
-      <a href="#hizmetler">Hizmetler</a>
+    <div class="dropdown">
+  <a href="#">Hizmetler ▾</a>
+  <div class="dropdown-menu">
+    <a href="#">Schengen Vizesi</a>
+    <a href="#">İngiltere Vizesi</a>
+    <a href="#">Almanya Çalışma Vizesi</a>
+    <a href="#">Şirket Kuruluşu</a>
+    <a href="#">Yatırım Danışmanlığı</a>
+    <a href="#">Personel Temini</a>
+  </div>
+</div>
+
       <a href="#surec">Süreç</a>
       <a href="#iletisim">İletişim</a>
     </div>
@@ -191,20 +277,24 @@ footer {
   <div class="container">
     <h2>Hizmetlerimiz</h2>
     <div class="grid">
-      <div class="card">
-        <h3>Nitelikli Personel Temini</h3>
-        <p>AB dışı ülkelerden Almanya’ya kalifiye personel yerleştirme.</p>
-      </div>
-      <div class="card">
-        <h3>Yatırım & Şirket Kuruluşu</h3>
-        <p>Almanya’da şirket kurma ve yatırım danışmanlığı.</p>
-      </div>
-      <div class="card">
-        <h3>Vize & Oturum Süreçleri</h3>
-        <p>Çalışma vizesi ve hukuki süreç yönetimi.</p>
-      </div>
-    </div>
-  </div>
+     <div class="card">
+  <div class="icon">💼</div>
+  <h3>Nitelikli Personel Temini</h3>
+  <p>AB dışı ülkelerden Almanya’ya kalifiye personel yerleştirme.</p>
+</div>
+
+<div class="card">
+  <div class="icon">🏢</div>
+  <h3>Yatırım & Şirket Kuruluşu</h3>
+  <p>Almanya’da şirket kurma ve yatırım danışmanlığı.</p>
+</div>
+
+<div class="card">
+  <div class="icon">🛂</div>
+  <h3>Vize & Oturum Süreçleri</h3>
+  <p>Çalışma vizesi ve hukuki süreç yönetimi.</p>
+</div>
+
 </section>
 
 <section class="section stats">
@@ -279,6 +369,7 @@ document.addEventListener("DOMContentLoaded", function () {
   
 </body>
 </html>
+
 
 
 
