@@ -1,132 +1,67 @@
-/* Renk Paleti ve Genel Ayarlar */
-:root {
-    --primary-blue: #2B4C7E;
-    --gold: #D4A574;
-    --light-grey: #F5F5F5;
-    --dark-grey: #333333;
-    --white: #FFFFFF;
-}
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Kızılay Trust Trading GmbH</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+<header class="hero">
+  <div class="container">
+    <h1>Avrupa’da Güvenilir İş ve Yatırım Ortağınız</h1>
+    <p>AB dışı ülkelerden Almanya ve Avrupa’ya Personel, Yatırım ve Hukuki Danışmanlık</p>
+    <div class="buttons">
+      <a href="#" class="btn primary">İşverenim</a>
+      <a href="#" class="btn secondary">Çalışmak İstiyorum</a>
+    </div>
+  </div>
+</header>
 
-body {
-    font-family: 'Inter', sans-serif;
-    color: var(--dark-grey);
-    line-height: 1.6;
-}
+<section class="services">
+  <div class="container">
+    <h2>Hizmetlerimiz</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Nitelikli Personel Temini</h3>
+        <p>AB dışı ülkelerden Almanya ve Avrupa’ya kalifiye personel yerleştirme ve süreç yönetimi.</p>
+      </div>
+      <div class="card">
+        <h3>Yatırım & Şirket Kuruluşu</h3>
+        <p>Almanya’da şirket kurulumu, yatırım planlaması ve hukuki danışmanlık.</p>
+      </div>
+      <div class="card">
+        <h3>Vize & Oturum Süreçleri</h3>
+        <p>Çalışma vizesi, aile birleşimi ve oturum izinlerinin profesyonel takibi.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
+<section class="process">
+  <div class="container">
+    <h2>Nasıl Çalışıyoruz?</h2>
+    <div class="steps">
+      <div>1️⃣ Ön Analiz</div>
+      <div>2️⃣ Eşleştirme</div>
+      <div>3️⃣ Resmi Süreç</div>
+      <div>4️⃣ Operasyon & Destek</div>
+    </div>
+  </div>
+</section>
 
-/* Header */
-header {
-    background: var(--white);
-    padding: 20px 0;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
+<section class="cta">
+  <div class="container">
+    <h2>Güvenli Süreçle Avrupa’ya Açılın</h2>
+    <a href="#" class="btn primary">Danışmanlık Talep Et</a>
+  </div>
+</section>
 
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+<footer>
+  <p>© 2026 Kızılay Trust Trading GmbH – Köln, Almanya</p>
+</footer>
 
-.logo {
-    font-size: 24px;
-    font-weight: 700;
-}
-
-.logo-k { color: var(--primary-blue); }
-.logo-t { color: var(--gold); margin-left: 5px; }
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 30px;
-    align-items: center;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: var(--dark-grey);
-    font-weight: 500;
-}
-
-.btn-consultancy {
-    background: var(--primary-blue);
-    color: var(--white) !important;
-    padding: 10px 20px;
-    border-radius: 8px;
-}
-
-/* Hero Section */
-.hero {
-    background: linear-gradient(rgba(43, 76, 126, 0.8), rgba(43, 76, 126, 0.8)), 
-                url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1350&q=80');
-    background-size: cover;
-    color: var(--white);
-    padding: 120px 0;
-    text-align: center;
-}
-
-.hero h1 {
-    font-size: 48px;
-    margin-bottom: 20px;
-}
-
-.hero p {
-    font-size: 20px;
-    max-width: 800px;
-    margin: 0 auto 40px;
-}
-
-.hero-btns {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-
-.btn {
-    padding: 15px 40px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 600;
-}
-
-.btn-primary { background: var(--gold); color: var(--white); }
-.btn-secondary { border: 2px solid var(--white); color: var(--white); }
-
-/* Highlights */
-.highlights { background: var(--light-grey); padding: 30px 0; }
-.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-.h-item { display: flex; align-items: center; gap: 10px; font-weight: 600; color: var(--primary-blue); }
-
-/* Services */
-.services { padding: 80px 0; }
-.section-title { text-align: center; margin-bottom: 50px; font-size: 32px; color: var(--primary-blue); }
-.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
-
-.service-card {
-    padding: 40px;
-    border-radius: 12px;
-    background: var(--white);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    text-align: center;
-    transition: transform 0.3s;
-}
-
-.service-card:hover { transform: translateY(-10px); }
-.service-card i { color: var(--gold); margin-bottom: 20px; width: 48px; height: 48px; }
-
-/* Footer */
-footer { background: var(--dark-grey); color: var(--white); padding: 40px 0; text-align: center; }
+</body>
+</html>
