@@ -137,8 +137,11 @@ nav a {
 
 .stats {
   position: relative;
-  background: url('stats-bg.jpg') center/cover no-repeat;
-  padding: 140px 0;
+  background-image: url("stats-bg.jpg") !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  padding: 180px 0 !important;
   color: white;
 }
 
@@ -153,6 +156,7 @@ nav a {
   position: relative;
   z-index: 2;
 }
+
 
 
 .stat-number {
@@ -178,24 +182,28 @@ footer {
   .hero h1{font-size:36px;}
 }
 
-  .dropdown {
+.dropdown {
   position: relative;
+  padding: 15px 0;
 }
+
 
 .dropdown-menu {
   position: absolute;
-  top: 40px;
+  top: 100%;
   left: 0;
+  margin-top: 15px;
   background: white;
   min-width: 260px;
-  border-radius: 12px;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-  padding: 15px 0;
+  border-radius: 16px;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.12);
+  padding: 20px 0;
   opacity: 0;
-  transform: translateY(15px);
+  transform: translateY(10px);
   transition: all 0.3s ease;
   pointer-events: none;
 }
+
 
 .dropdown-menu a {
   display: block;
@@ -369,6 +377,7 @@ document.addEventListener("DOMContentLoaded", function () {
   
 </body>
 </html>
+
 
 
 
