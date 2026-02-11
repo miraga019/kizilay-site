@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kızılay Trust Trading GmbH</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+body {
+  margin:0;
+  padding-top:80px;
+  font-family:'Inter',sans-serif;
+  color:#333;
+  scroll-behavior:smooth;
+  background:#fafafa;
+}
+
+/* Layout */
+.container {
+  width:90%;
+  max-width:1200px;
+  margin:auto;
+}
+
+/* Navbar */
+nav {
+  position:fixed;
+  top:0;
+  width:100%;
+  background:white;
+  box-shadow:0 2px 15px rgba(0,0,0,0.05);
+  z-index:999;
+}
+
+nav .container {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 0;
+}
+
+nav a {
+  text-decoration:none;
+  color:#333;
+  margin-left:25px;
+  font-weight:600;
+  transition:color 0.3s ease;
+}
+
+nav a:hover {
+  color:#C73A3A;
+}
+
+/* Dropdown */
+.dropdown {
+  position:relative;
+  display:inline-block;
+}
+
+.dropdown-menu {
+  position:absolute;
+  top:100%;
+  left:0;
+  margin-top:15px;
+  background:white;
+  min-width:260px;
+  border-radius:16px;
+  box-shadow:0 25px 60px rgba(0,0,0,0.12);
+  padding:20px 0;
+  opacity:0;
+  transform:translateY(10px);
+  transition:all 0.3s ease;
+  pointer-events:none;
+}
+
+.dropdown-menu a {
+  display:block;
+  padding:12px 20px;
+  color:#333;
+  margin:0;
+}
+
+.dropdown-menu a:hover {
+  background:#f5f5f5;
+  color:#C73A3A;
+}
+
+.dropdown:hover .dropdown-menu {
+  opacity:1;
+  transform:translateY(0);
+  pointer-events:auto;
+}
+
+/* Hero */
+.hero {
+  position:relative;
+  background:url('hero-business.png') center/cover no-repeat;
+  color:white;
+  padding:200px 0 160px;
+  text-align:center;
+}
+
+.hero::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.7),
+    rgba(0,0,0,0.6),
+    rgba(0,0,0,0.8)
+  );
+}
+
+.hero .container {
+  position:relative;
+  z-index:2;
+}
+
+.hero h1 {
+  font-size:56px;
+  margin-bottom:20px;
+  text-shadow:0 4px 20px rgba(0,0,0,0.6);
+}
+
+.hero p {
+  font-size:22px;
+  margin-bottom:40px;
+  text-shadow:0 2px 12px rgba(0,0,0,0.6);
+}
+
+/* Buttons */
+.btn {
+  padding:14px 32px;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:600;
+  margin:10px;
+  display:inline-block;
+  transition:all 0.3s ease;
+  cursor:pointer;
+}
+
+.primary {
+  background:#C73A3A;
+  color:white;
+  box-shadow:0 4px 15px rgba(199,58,58,0.3);
+}
+
+.primary:hover {
+  background:#a92f2f;
+  transform:translateY(-2px);
+  box-shadow:0 6px 20px rgba(199,58,58,0.4);
+}
+
+.secondary {
+  border:2px solid white;
+  color:white;
+  background:transparent;
+}
+
+.secondary:hover {
+  background:white;
+  color:#C73A3A;
+}
+
+/* Sections */
+.section {
+  padding:120px 0;
+  text-align:center;
+}
+
+.section h2 {
+  font-size:42px;
+  margin-bottom:60px;
+  color:#1E355E;
+  position:relative;
+  display:inline-block;
+}
+
+.section h2::after {
+  content:'';
+  position:absolute;
+  bottom:-15px;
+  left:50%;
+  transform:translateX(-50%);
+  width:80px;
+  height:4px;
+  background:linear-gradient(to right, #C73A3A, #ff6b6b);
+  border-radius:2px;
+}
+
+/* Cards */
+.grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(320px, 1fr));
+  gap:30px;
+  max-width:1100px;
+  margin:0 auto;
+}
+
+.card {
+  background:white;
+  padding:50px 30px;
+  border-radius:20px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.08);
+  transition:all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border:1px solid rgba(0,0,0,0.05);
+  position:relative;
+  overflow:hidden;
+}
+
+.card::before {
+  content:'';
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  height:4px;
+  background:linear-gradient(to right, #C73A3A, #ff6b6b);
+  transform:scaleX(0);
+  transition:transform 0.4s ease;
+}
+
+.card:hover {
+  transform:translateY(-15px) scale(1.02);
+  box-shadow:0 25px 50px rgba(0,0,0,0.15);
+  border-color:rgba(199,58,58,0.2);
+}
+
+.card:hover::before {
+  transform:scaleX(1);
+}
+
+.icon {
+  font-size:50px;
+  margin-bottom:25px;
+  transition:transform 0.4s ease;
+}
+
+.card:hover .icon {
+  transform:scale(1.1) rotate(5deg);
+}
+
+.card h3 {
+  font-size:22px;
+  margin-bottom:15px;
+  color:#1E355E;
+  transition:color 0.3s ease;
+}
+
+.card:hover h3 {
+  color:#C73A3A;
+}
+
+.card p {
+  color:#666;
+  line-height:1.7;
+  font-size:15px;
+}
+
+/* Stats */
+.stats {
+  position:relative;
+  background:url('stats-bg.jpg') center/cover no-repeat;
+  padding:120px 0;
+  color:white;
+}
+
+.stats::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(30,53,94,0.85);
+}
+
+.stats .container {
+  position:relative;
+  z-index:2;
+}
+
+.stats .grid {
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
+  gap:50px;
+  flex-wrap:wrap;
+}
+
+.stats > .container > .grid > div {
+  flex:1;
+  min-width:200px;
+  text-align:center;
+}
+
+.stat-number {
+  font-size:60px;
+  font-weight:700;
+  color:#ff6b6b;
+  text-shadow:0 4px 15px rgba(255,107,107,0.4);
+  margin-bottom:15px;
+}
+
+.stats p {
+  font-size:18px;
+  font-weight:500;
+  letter-spacing:0.5px;
+  margin:0;
+  color:#e0e0e0;
+}
+
+/* Process Section - Blue Background Design */
+#surec {
+  background:linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  position:relative;
+  overflow:hidden;
+  text-align:left;
+}
+
+#surec::before {
+  content:'';
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  background-image: 
+    radial-gradient(circle at 20% 50%, rgba(255,255,255,0.05) 1px, transparent 1px),
+    radial-gradient(circle at 80% 80%, rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 50px 50px, 80px 80px;
+  opacity:0.5;
+}
+
+#surec .container {
+  position:relative;
+  z-index:2;
+}
+
+.process-header {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:80px;
+}
+
+.process-header-left h3 {
+  color:#ef4444;
+  font-size:14px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:1.5px;
+  margin-bottom:15px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.process-header-left h2 {
+  color:white;
+  font-size:48px;
+  line-height:1.2;
+  margin:0;
+  max-width:600px;
+}
+
+.process-header-left h2::after {
+  display:none;
+}
+
+.process-header-right .btn {
+  padding:16px 40px;
+  font-size:16px;
+}
+
+#surec .grid {
+  grid-template-columns:repeat(3, 1fr);
+  gap:40px;
+  margin-top:0;
+}
+
+#surec .card {
+  background:transparent;
+  backdrop-filter:none;
+  border:none;
+  border-bottom:1px dotted rgba(255,255,255,0.3);
+  color:white;
+  padding:0 0 40px 0;
+  border-radius:0;
+  position:relative;
+  overflow:visible;
+}
+
+#surec .card::before {
+  display:none;
+}
+
+.process-card-icon {
+  color:#ef4444;
+  font-size:24px;
+  margin-bottom:20px;
+  display:block;
+}
+
+.process-card-title {
+  font-size:22px;
+  font-weight:600;
+  margin-bottom:20px;
+  color:white;
+}
+
+.process-card-description {
+  font-size:15px;
+  line-height:1.8;
+  color:rgba(255,255,255,0.8);
+  margin:0;
+}
+
+@media(max-width:968px){
+  .process-header {
+    flex-direction:column;
+    align-items:flex-start;
+    gap:30px;
+  }
+  
+  #surec .grid {
+    grid-template-columns:1fr;
+  }
+  
+  .process-header-left h2 {
+    font-size:36px;
+  }
+}
+
+/* About Section */
+.about-section {
+  padding:120px 0;
+  background:#f8f9fa;
+  position:relative;
+}
+
+.about-container {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:80px;
+  align-items:center;
+  max-width:1200px;
+  margin:0 auto;
+  width:90%;
+}
+
+.about-left {
+  position:relative;
+}
+
+.about-image-wrapper {
+  position:relative;
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:0 30px 60px rgba(0,0,0,0.15);
+}
+
+.about-image-wrapper img {
+  width:100%;
+  height:auto;
+  display:block;
+}
+
+.call-card {
+  position:absolute;
+  top:-30px;
+  left:-30px;
+  background:#ef4444;
+  color:white;
+  padding:25px 35px;
+  border-radius:16px;
+  box-shadow:0 20px 40px rgba(239,68,68,0.3);
+  z-index:10;
+  transition:transform 0.3s ease;
+}
+
+.call-card:hover {
+  transform:scale(1.05);
+}
+
+.call-card-title {
+  font-size:14px;
+  margin-bottom:8px;
+  opacity:0.9;
+}
+
+.call-card-number {
+  font-size:22px;
+  font-weight:700;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.phone-icon {
+  width:40px;
+  height:40px;
+  background:rgba(255,255,255,0.2);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:20px;
+}
+
+.stats-card {
+  position:absolute;
+  bottom:30px;
+  left:30px;
+  background:white;
+  padding:30px;
+  border-radius:16px;
+  box-shadow:0 20px 40px rgba(0,0,0,0.15);
+  min-width:280px;
+}
+
+.stat-item {
+  margin-bottom:20px;
+}
+
+.stat-item:last-child {
+  margin-bottom:0;
+}
+
+.stat-label {
+  font-size:14px;
+  color:#666;
+  margin-bottom:5px;
+}
+
+.stat-value {
+  font-size:28px;
+  font-weight:700;
+  color:#1e3c72;
+}
+
+.countries-badge {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-top:15px;
+  padding-top:15px;
+  border-top:1px solid #e0e0e0;
+}
+
+.flag-icons {
+  display:flex;
+  gap:5px;
+}
+
+.flag-icons span {
+  font-size:20px;
+}
+
+.countries-text {
+  font-size:13px;
+  color:#666;
+}
+
+.years-badge {
+  margin-top:15px;
+  padding-top:15px;
+  border-top:1px solid #e0e0e0;
+  font-size:13px;
+  color:#666;
+}
+
+.about-right {
+  padding-left:20px;
+}
+
+.about-tag {
+  color:#ef4444;
+  font-size:14px;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  margin-bottom:15px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.about-title {
+  font-size:42px;
+  line-height:1.2;
+  color:#1E355E;
+  margin-bottom:30px;
+  position:relative;
+}
+
+.about-title::after {
+  content:'';
+  display:block;
+  width:80px;
+  height:4px;
+  background:linear-gradient(to right, #ef4444, #f87171);
+  margin-top:20px;
+}
+
+.about-description {
+  font-size:16px;
+  line-height:1.8;
+  color:#666;
+  margin-bottom:35px;
+}
+
+.feature-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:25px;
+  margin-bottom:35px;
+}
+
+.feature-item {
+  display:flex;
+  align-items:flex-start;
+  gap:15px;
+}
+
+.feature-icon {
+  width:50px;
+  height:50px;
+  background:#fef2f2;
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-shrink:0;
+  font-size:24px;
+}
+
+.feature-text h4 {
+  font-size:16px;
+  font-weight:600;
+  color:#1E355E;
+  margin:0 0 5px 0;
+}
+
+.feature-text p {
+  font-size:14px;
+  color:#666;
+  margin:0;
+}
+
+.check-list {
+  margin-bottom:35px;
+}
+
+.check-item {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:15px;
+  font-size:15px;
+  color:#555;
+}
+
+.check-item:last-child {
+  margin-bottom:0;
+}
+
+.check-icon {
+  color:#ef4444;
+  font-size:18px;
+  flex-shrink:0;
+}
+
+@media(max-width:968px){
+  .about-container {
+    grid-template-columns:1fr;
+    gap:50px;
+  }
+  
+  .about-right {
+    padding-left:0;
+  }
+  
+  .call-card {
+    position:static;
+    margin-bottom:20px;
+  }
+  
+  .stats-card {
+    position:static;
+    margin-top:20px;
+  }
+  
+  .feature-grid {
+    grid-template-columns:1fr;
+  }
+}
+
+/* CTA */
+.cta {
+  background:linear-gradient(135deg, #2B4C7E 0%, #1E355E 100%);
+  color:white;
+  padding:120px 0;
+  text-align:center;
+}
+
+.cta h2 {
+  color:white;
+  margin-bottom:40px;
+}
+
+.cta h2::after {
+  background:linear-gradient(to right, #ff6b6b, #C73A3A);
+}
+
+/* Footer */
+footer {
+  background:#1E355E;
+  color:white;
+  padding:30px 0;
+  text-align:center;
+  font-size:14px;
+}
+
+@media(max-width:768px){
+  .hero h1{
+    font-size:36px;
+  }
+  
+  .grid {
+    grid-template-columns:1fr;
+  }
+  
+  .section h2 {
+    font-size:32px;
+  }
+  
+  nav .container > div {
+    display:flex;
+    align-items:center;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div class="container">
+    <img src="logo.png" alt="Logo" style="height:40px;">
+    <div>
+      <div class="dropdown">
+        <a href="#">Hizmetler ▾</a>
+        <div class="dropdown-menu">
+          <a href="#">Schengen Vizesi</a>
+          <a href="#">İngiltere Vizesi</a>
+          <a href="#">Almanya Çalışma Vizesi</a>
+          <a href="#">Şirket Kuruluşu</a>
+          <a href="#">Yatırım Danışmanlığı</a>
+          <a href="#">Personel Temini</a>
+        </div>
+      </div>
+      <a href="#surec">Süreç</a>
+      <a href="#iletisim">İletişim</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="container">
+    <h1>Avrupa'da Güvenilir İş ve Yatırım Ortağınız</h1>
+    <p>AB dışı ülkelerden Almanya ve Avrupa'ya Personel, Yatırım ve Hukuki Danışmanlık</p>
+    <a href="#" class="btn primary">İşverenim</a>
+    <a href="#" class="btn secondary">Çalışmak İstiyorum</a>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2>Hizmetlerimiz</h2>
+    <div class="grid">
+
+      <div class="card">
+        <div class="icon">💼</div>
+        <h3>Nitelikli Personel Temini</h3>
+        <p>AB dışı ülkelerden Almanya'ya kalifiye personel yerleştirme.</p>
+      </div>
+
+      <div class="card">
+        <div class="icon">🏢</div>
+        <h3>Yatırım & Şirket Kuruluşu</h3>
+        <p>Almanya'da şirket kurma ve yatırım danışmanlığı.</p>
+      </div>
+
+      <div class="card">
+        <div class="icon">🛂</div>
+        <h3>Vize & Oturum Süreçleri</h3>
+        <p>Çalışma vizesi ve hukuki süreç yönetimi.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="container">
+    <div class="grid">
+      <div>
+        <div class="stat-number" data-target="150">0</div>
+        <p>Başarılı Yerleştirme</p>
+      </div>
+      <div>
+        <div class="stat-number" data-target="20">0</div>
+        <p>Partner Firma</p>
+      </div>
+      <div>
+        <div class="stat-number" data-target="8">0</div>
+        <p>Ülkede Operasyon</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="surec" class="section">
+  <div class="container">
+    <div class="process-header">
+      <div class="process-header-left">
+        <h3>🚀 OUR FEATURES</h3>
+        <h2>Committed to provide you the best services</h2>
+      </div>
+      <div class="process-header-right">
+        <a href="#" class="btn primary">Get Started</a>
+      </div>
+    </div>
+    
+    <div class="grid">
+      <div class="card">
+        <span class="process-card-icon">✓</span>
+        <h3 class="process-card-title">Quality Visa Services</h3>
+        <p class="process-card-description">Immigway Visa Consultancy was created to provide uniquely designed premium services in the world of education and migration.</p>
+      </div>
+      
+      <div class="card">
+        <span class="process-card-icon">✓</span>
+        <h3 class="process-card-title">Professional & Expert Team</h3>
+        <p class="process-card-description">Immigway Visa Consultancy was created to provide uniquely designed premium services in the world of education and migration.</p>
+      </div>
+      
+      <div class="card">
+        <span class="process-card-icon">✓</span>
+        <h3 class="process-card-title">100% Satisfaction Guaranteed</h3>
+        <p class="process-card-description">Immigway Visa Consultancy was created to provide uniquely designed premium services in the world of education and migration.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about-section">
+  <div class="about-container">
+    <div class="about-left">
+      <div class="call-card">
+        <div class="call-card-title">Call For Consultation</div>
+        <div class="call-card-number">
+          <div class="phone-icon">📞</div>
+          +01 567 114 3312
+        </div>
+      </div>
+      
+      <div class="about-image-wrapper">
+        <img src="student-with-globe.jpg" alt="Student with globe">
+      </div>
+      
+      <div class="stats-card">
+        <div class="stat-item">
+          <div class="stat-label">Served Client</div>
+          <div class="stat-value" data-count="127865">0</div>
+        </div>
+        
+        <div class="countries-badge">
+          <div class="flag-icons">
+            <span>🇺🇸</span>
+            <span>🇬🇧</span>
+            <span>🇩🇪</span>
+            <span style="font-size:16px;">+</span>
+          </div>
+          <div class="countries-text">10 Countries</div>
+        </div>
+        
+        <div class="years-badge">
+          We are serving for 20 Years
+        </div>
+      </div>
+    </div>
+    
+    <div class="about-right">
+      <div class="about-tag">
+        🚀 ABOUT OUR COMPANY
+      </div>
+      <h2 class="about-title">We help Making your dream into Reality</h2>
+      <p class="about-description">
+        Kızılay Trust Trading, eğitim ve göç dünyasında benzersiz şekilde tasarlanmış premium hizmetler sunmak için oluşturulmuştur. İnsanlar daha fazla uygulamalı deneyim hayal ediyor.
+      </p>
+      
+      <div class="feature-grid">
+        <div class="feature-item">
+          <div class="feature-icon">📋</div>
+          <div class="feature-text">
+            <h4>Checking all Visa</h4>
+            <h4>Eligibilities</h4>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">📝</div>
+          <div class="feature-text">
+            <h4>Approved Exam</h4>
+            <h4>Facilitation</h4>
+          </div>
+        </div>
+      </div>
+      
+      <div class="check-list">
+        <div class="check-item">
+          <span class="check-icon">✓</span>
+          Fastest Visa form processing with expert immigration agents
+        </div>
+        <div class="check-item">
+          <span class="check-icon">✓</span>
+          Affiliation with Educational Institutions from over the world
+        </div>
+      </div>
+      
+      <a href="#" class="btn primary">Get Started</a>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="container">
+    <h2>Güvenli Süreçle Avrupa'ya Açılın</h2>
+    <a href="#" class="btn primary">Danışmanlık Talep Et</a>
+  </div>
+</section>
+
+<footer id="iletisim">
+  <p>© 2026 Kızılay Trust Trading GmbH – Köln, Almanya</p>
+</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  // Stats section counters
+  const counters = document.querySelectorAll('.stat-number');
+  counters.forEach(counter => {
+    const target = +counter.getAttribute('data-target');
+    let count = 0;
+    const speed = 120;
+
+    const updateCount = () => {
+      const increment = target / speed;
+      if (count < target) {
+        count += increment;
+        counter.innerText = Math.ceil(count);
+        requestAnimationFrame(updateCount);
+      } else {
+        counter.innerText = target + "+";
+      }
+    };
+    updateCount();
+  });
+  
+  // About section served client counter
+  const aboutCounter = document.querySelector('[data-count]');
+  if (aboutCounter) {
+    const target = +aboutCounter.getAttribute('data-count');
+    let count = 0;
+    const speed = 100;
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const updateCount = () => {
+            const increment = target / speed;
+            if (count < target) {
+              count += increment;
+              aboutCounter.innerText = Math.ceil(count).toLocaleString();
+              requestAnimationFrame(updateCount);
+            } else {
+              aboutCounter.innerText = target.toLocaleString();
+            }
+          };
+          updateCount();
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    
+    observer.observe(aboutCounter);
+  }
+});
+</script>
+
+</body>
+</html>
