@@ -15,6 +15,7 @@ body {
   font-family:'Inter',sans-serif;
   color:#333;
   scroll-behavior:smooth;
+  background:#fafafa;
 }
 
 /* Layout */
@@ -46,11 +47,17 @@ nav a {
   color:#333;
   margin-left:25px;
   font-weight:600;
+  transition:color 0.3s ease;
+}
+
+nav a:hover {
+  color:#C73A3A;
 }
 
 /* Dropdown */
 .dropdown {
   position:relative;
+  display:inline-block;
 }
 
 .dropdown-menu {
@@ -73,6 +80,7 @@ nav a {
   display:block;
   padding:12px 20px;
   color:#333;
+  margin:0;
 }
 
 .dropdown-menu a:hover {
@@ -132,21 +140,31 @@ nav a {
   font-weight:600;
   margin:10px;
   display:inline-block;
-  transition:0.3s;
+  transition:all 0.3s ease;
+  cursor:pointer;
 }
 
 .primary {
   background:#C73A3A;
   color:white;
+  box-shadow:0 4px 15px rgba(199,58,58,0.3);
 }
 
 .primary:hover {
   background:#a92f2f;
+  transform:translateY(-2px);
+  box-shadow:0 6px 20px rgba(199,58,58,0.4);
 }
 
 .secondary {
   border:2px solid white;
   color:white;
+  background:transparent;
+}
+
+.secondary:hover {
+  background:white;
+  color:#C73A3A;
 }
 
 /* Sections */
@@ -155,39 +173,100 @@ nav a {
   text-align:center;
 }
 
+.section h2 {
+  font-size:42px;
+  margin-bottom:60px;
+  color:#1E355E;
+  position:relative;
+  display:inline-block;
+}
+
+.section h2::after {
+  content:'';
+  position:absolute;
+  bottom:-15px;
+  left:50%;
+  transform:translateX(-50%);
+  width:80px;
+  height:4px;
+  background:linear-gradient(to right, #C73A3A, #ff6b6b);
+  border-radius:2px;
+}
+
 /* Cards */
 .grid {
-  display:flex;
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(320px, 1fr));
   gap:30px;
-  justify-content:center;
-  flex-wrap:wrap;
+  max-width:1100px;
+  margin:0 auto;
 }
 
 .card {
   background:white;
   padding:50px 30px;
-  border-radius:16px;
-  width:320px;
-  box-shadow:0 20px 50px rgba(0,0,0,0.06);
-  transition:all 0.4s ease;
-  border:1px solid rgba(0,0,0,0.03);
+  border-radius:20px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.08);
+  transition:all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border:1px solid rgba(0,0,0,0.05);
+  position:relative;
+  overflow:hidden;
+}
+
+.card::before {
+  content:'';
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  height:4px;
+  background:linear-gradient(to right, #C73A3A, #ff6b6b);
+  transform:scaleX(0);
+  transition:transform 0.4s ease;
 }
 
 .card:hover {
-  transform:translateY(-12px);
-  box-shadow:0 30px 60px rgba(0,0,0,0.1);
+  transform:translateY(-15px) scale(1.02);
+  box-shadow:0 25px 50px rgba(0,0,0,0.15);
+  border-color:rgba(199,58,58,0.2);
+}
+
+.card:hover::before {
+  transform:scaleX(1);
 }
 
 .icon {
-  font-size:40px;
-  margin-bottom:20px;
+  font-size:50px;
+  margin-bottom:25px;
+  transition:transform 0.4s ease;
+}
+
+.card:hover .icon {
+  transform:scale(1.1) rotate(5deg);
+}
+
+.card h3 {
+  font-size:22px;
+  margin-bottom:15px;
+  color:#1E355E;
+  transition:color 0.3s ease;
+}
+
+.card:hover h3 {
+  color:#C73A3A;
+}
+
+.card p {
+  color:#666;
+  line-height:1.7;
+  font-size:15px;
 }
 
 /* Stats */
 .stats {
   position:relative;
   background:url('stats-bg.jpg') center/cover no-repeat;
-  padding:180px 0;
+  padding:120px 0;
   color:white;
 }
 
@@ -195,7 +274,7 @@ nav a {
   content:"";
   position:absolute;
   inset:0;
-  background:rgba(0,0,0,0.65);
+  background:rgba(30,53,94,0.85);
 }
 
 .stats .container {
@@ -203,18 +282,105 @@ nav a {
   z-index:2;
 }
 
+.stats .grid {
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
+  gap:50px;
+  flex-wrap:wrap;
+}
+
+.stats > .container > .grid > div {
+  flex:1;
+  min-width:200px;
+  text-align:center;
+}
+
 .stat-number {
-  font-size:48px;
+  font-size:60px;
   font-weight:700;
-  color:#ff4d4d;
+  color:#ff6b6b;
+  text-shadow:0 4px 15px rgba(255,107,107,0.4);
+  margin-bottom:15px;
+}
+
+.stats p {
+  font-size:18px;
+  font-weight:500;
+  letter-spacing:0.5px;
+  margin:0;
+}
+
+/* Process Cards */
+#surec .grid {
+  grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
+}
+
+#surec .card {
+  background:linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color:white;
+  font-size:20px;
+  font-weight:700;
+  padding:60px 30px;
+  border:none;
+  position:relative;
+  overflow:hidden;
+}
+
+#surec .card::before {
+  content:'';
+  position:absolute;
+  top:50%;
+  left:50%;
+  width:0;
+  height:0;
+  background:rgba(255,255,255,0.2);
+  border-radius:50%;
+  transform:translate(-50%, -50%);
+  transition:width 0.6s ease, height 0.6s ease;
+}
+
+#surec .card:hover::before {
+  width:400px;
+  height:400px;
+}
+
+#surec .card:nth-child(1) {
+  background:linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+#surec .card:nth-child(2) {
+  background:linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+#surec .card:nth-child(3) {
+  background:linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+#surec .card:nth-child(4) {
+  background:linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+}
+
+#surec .card:hover {
+  transform:translateY(-15px) scale(1.05);
+  box-shadow:0 30px 60px rgba(0,0,0,0.25);
 }
 
 /* CTA */
 .cta {
-  background:#2B4C7E;
+  background:linear-gradient(135deg, #2B4C7E 0%, #1E355E 100%);
   color:white;
   padding:120px 0;
   text-align:center;
+}
+
+.cta h2 {
+  color:white;
+  margin-bottom:40px;
+}
+
+.cta h2::after {
+  background:linear-gradient(to right, #ff6b6b, #C73A3A);
 }
 
 /* Footer */
@@ -227,7 +393,22 @@ footer {
 }
 
 @media(max-width:768px){
-  .hero h1{font-size:36px;}
+  .hero h1{
+    font-size:36px;
+  }
+  
+  .grid {
+    grid-template-columns:1fr;
+  }
+  
+  .section h2 {
+    font-size:32px;
+  }
+  
+  nav .container > div {
+    display:flex;
+    align-items:center;
+  }
 }
 
 </style>
@@ -258,8 +439,8 @@ footer {
 
 <section class="hero">
   <div class="container">
-    <h1>Avrupa’da Güvenilir İş ve Yatırım Ortağınız</h1>
-    <p>AB dışı ülkelerden Almanya ve Avrupa’ya Personel, Yatırım ve Hukuki Danışmanlık</p>
+    <h1>Avrupa'da Güvenilir İş ve Yatırım Ortağınız</h1>
+    <p>AB dışı ülkelerden Almanya ve Avrupa'ya Personel, Yatırım ve Hukuki Danışmanlık</p>
     <a href="#" class="btn primary">İşverenim</a>
     <a href="#" class="btn secondary">Çalışmak İstiyorum</a>
   </div>
@@ -273,13 +454,13 @@ footer {
       <div class="card">
         <div class="icon">💼</div>
         <h3>Nitelikli Personel Temini</h3>
-        <p>AB dışı ülkelerden Almanya’ya kalifiye personel yerleştirme.</p>
+        <p>AB dışı ülkelerden Almanya'ya kalifiye personel yerleştirme.</p>
       </div>
 
       <div class="card">
         <div class="icon">🏢</div>
         <h3>Yatırım & Şirket Kuruluşu</h3>
-        <p>Almanya’da şirket kurma ve yatırım danışmanlığı.</p>
+        <p>Almanya'da şirket kurma ve yatırım danışmanlığı.</p>
       </div>
 
       <div class="card">
@@ -293,18 +474,20 @@ footer {
 </section>
 
 <section class="stats">
-  <div class="container grid">
-    <div>
-      <div class="stat-number" data-target="150">0</div>
-      <p>Başarılı Yerleştirme</p>
-    </div>
-    <div>
-      <div class="stat-number" data-target="20">0</div>
-      <p>Partner Firma</p>
-    </div>
-    <div>
-      <div class="stat-number" data-target="8">0</div>
-      <p>Ülkede Operasyon</p>
+  <div class="container">
+    <div class="grid">
+      <div>
+        <div class="stat-number" data-target="150">0</div>
+        <p>Başarılı Yerleştirme</p>
+      </div>
+      <div>
+        <div class="stat-number" data-target="20">0</div>
+        <p>Partner Firma</p>
+      </div>
+      <div>
+        <div class="stat-number" data-target="8">0</div>
+        <p>Ülkede Operasyon</p>
+      </div>
     </div>
   </div>
 </section>
@@ -323,7 +506,7 @@ footer {
 
 <section class="cta">
   <div class="container">
-    <h2>Güvenli Süreçle Avrupa’ya Açılın</h2>
+    <h2>Güvenli Süreçle Avrupa'ya Açılın</h2>
     <a href="#" class="btn primary">Danışmanlık Talep Et</a>
   </div>
 </section>
