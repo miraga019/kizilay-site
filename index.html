@@ -11,22 +11,26 @@
 
 body {
   margin:0;
+  padding-top:80px;
   font-family:'Inter',sans-serif;
   color:#333;
   scroll-behavior:smooth;
 }
 
+/* Layout */
 .container {
   width:90%;
   max-width:1200px;
   margin:auto;
 }
 
+/* Navbar */
 nav {
   position:fixed;
+  top:0;
   width:100%;
   background:white;
-  box-shadow:0 2px 10px rgba(0,0,0,0.05);
+  box-shadow:0 2px 15px rgba(0,0,0,0.05);
   z-index:999;
 }
 
@@ -40,47 +44,87 @@ nav .container {
 nav a {
   text-decoration:none;
   color:#333;
-  margin-left:20px;
+  margin-left:25px;
   font-weight:600;
 }
 
+/* Dropdown */
+.dropdown {
+  position:relative;
+}
+
+.dropdown-menu {
+  position:absolute;
+  top:100%;
+  left:0;
+  margin-top:15px;
+  background:white;
+  min-width:260px;
+  border-radius:16px;
+  box-shadow:0 25px 60px rgba(0,0,0,0.12);
+  padding:20px 0;
+  opacity:0;
+  transform:translateY(10px);
+  transition:all 0.3s ease;
+  pointer-events:none;
+}
+
+.dropdown-menu a {
+  display:block;
+  padding:12px 20px;
+  color:#333;
+}
+
+.dropdown-menu a:hover {
+  background:#f5f5f5;
+  color:#C73A3A;
+}
+
+.dropdown:hover .dropdown-menu {
+  opacity:1;
+  transform:translateY(0);
+  pointer-events:auto;
+}
+
+/* Hero */
 .hero {
-  position: relative;
-  background: url('hero-business.png') center/cover no-repeat;
-  color: white;
-  padding: 200px 0 160px;
-  text-align: center;
+  position:relative;
+  background:url('hero-business.png') center/cover no-repeat;
+  color:white;
+  padding:200px 0 160px;
+  text-align:center;
 }
 
 .hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
     to bottom,
-    rgba(0,0,0,0.65) 0%,
-    rgba(0,0,0,0.55) 40%,
-    rgba(0,0,0,0.75) 100%
+    rgba(0,0,0,0.7),
+    rgba(0,0,0,0.6),
+    rgba(0,0,0,0.8)
   );
 }
 
-
 .hero .container {
-  position: relative;
-  z-index: 2;
+  position:relative;
+  z-index:2;
 }
 
 .hero h1 {
   font-size:56px;
   margin-bottom:20px;
+  text-shadow:0 4px 20px rgba(0,0,0,0.6);
 }
 
 .hero p {
   font-size:22px;
   margin-bottom:40px;
-  opacity:0.9;
+  text-shadow:0 2px 12px rgba(0,0,0,0.6);
 }
 
+/* Buttons */
 .btn {
   padding:14px 32px;
   border-radius:8px;
@@ -105,16 +149,13 @@ nav a {
   color:white;
 }
 
+/* Sections */
 .section {
   padding:120px 0;
   text-align:center;
 }
 
-.section h2 {
-  font-size:36px;
-  margin-bottom:60px;
-}
-
+/* Cards */
 .grid {
   display:flex;
   gap:30px;
@@ -123,53 +164,60 @@ nav a {
 }
 
 .card {
-  background:#f5f5f5;
-  padding:40px 30px;
-  border-radius:12px;
-  width:300px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.05);
-  transition:0.3s;
+  background:white;
+  padding:50px 30px;
+  border-radius:16px;
+  width:320px;
+  box-shadow:0 20px 50px rgba(0,0,0,0.06);
+  transition:all 0.4s ease;
+  border:1px solid rgba(0,0,0,0.03);
 }
 
 .card:hover {
-  transform:translateY(-8px);
+  transform:translateY(-12px);
+  box-shadow:0 30px 60px rgba(0,0,0,0.1);
 }
 
+.icon {
+  font-size:40px;
+  margin-bottom:20px;
+}
+
+/* Stats */
 .stats {
-  position: relative;
-  background-image: url("stats-bg.jpg") !important;
-  background-size: cover !important;
-  background-position: center !important;
-  background-repeat: no-repeat !important;
-  padding: 180px 0 !important;
-  color: white;
+  position:relative;
+  background:url('stats-bg.jpg') center/cover no-repeat;
+  padding:180px 0;
+  color:white;
 }
 
 .stats::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.65);
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.65);
 }
 
 .stats .container {
-  position: relative;
-  z-index: 2;
+  position:relative;
+  z-index:2;
 }
-
-
 
 .stat-number {
   font-size:48px;
   font-weight:700;
-  color:#C73A3A;
+  color:#ff4d4d;
 }
 
+/* CTA */
 .cta {
   background:#2B4C7E;
   color:white;
+  padding:120px 0;
+  text-align:center;
 }
 
+/* Footer */
 footer {
   background:#1E355E;
   color:white;
@@ -182,69 +230,6 @@ footer {
   .hero h1{font-size:36px;}
 }
 
-.dropdown {
-  position: relative;
-  padding: 15px 0;
-}
-
-
-.dropdown-menu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  margin-top: 15px;
-  background: white;
-  min-width: 260px;
-  border-radius: 16px;
-  box-shadow: 0 25px 60px rgba(0,0,0,0.12);
-  padding: 20px 0;
-  opacity: 0;
-  transform: translateY(10px);
-  transition: all 0.3s ease;
-  pointer-events: none;
-}
-
-
-.dropdown-menu a {
-  display: block;
-  padding: 12px 20px;
-  color: #333;
-  text-decoration: none;
-  font-weight: 500;
-  transition: 0.2s;
-}
-
-.dropdown-menu a:hover {
-  background: #f5f5f5;
-  color: #C73A3A;
-}
-
-.dropdown:hover .dropdown-menu {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
-}
-
-.card {
-  background: white;
-  padding: 50px 30px;
-  border-radius: 16px;
-  width: 320px;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.06);
-  transition: all 0.4s ease;
-  border: 1px solid rgba(0,0,0,0.03);
-}
-
-.card:hover {
-  transform: translateY(-12px);
-  box-shadow: 0 30px 60px rgba(0,0,0,0.1);
-}
-
-.icon {
-  font-size: 40px;
-  margin-bottom: 20px;
-}
-
 </style>
 </head>
 
@@ -252,20 +237,19 @@ footer {
 
 <nav>
   <div class="container">
-   <img src="logo.png" alt="Kızılay Trust Logo" style="height:40px;">
+    <img src="logo.png" alt="Logo" style="height:40px;">
     <div>
-    <div class="dropdown">
-  <a href="#">Hizmetler ▾</a>
-  <div class="dropdown-menu">
-    <a href="#">Schengen Vizesi</a>
-    <a href="#">İngiltere Vizesi</a>
-    <a href="#">Almanya Çalışma Vizesi</a>
-    <a href="#">Şirket Kuruluşu</a>
-    <a href="#">Yatırım Danışmanlığı</a>
-    <a href="#">Personel Temini</a>
-  </div>
-</div>
-
+      <div class="dropdown">
+        <a href="#">Hizmetler ▾</a>
+        <div class="dropdown-menu">
+          <a href="#">Schengen Vizesi</a>
+          <a href="#">İngiltere Vizesi</a>
+          <a href="#">Almanya Çalışma Vizesi</a>
+          <a href="#">Şirket Kuruluşu</a>
+          <a href="#">Yatırım Danışmanlığı</a>
+          <a href="#">Personel Temini</a>
+        </div>
+      </div>
       <a href="#surec">Süreç</a>
       <a href="#iletisim">İletişim</a>
     </div>
@@ -281,31 +265,34 @@ footer {
   </div>
 </section>
 
-<section id="hizmetler" class="section">
+<section class="section">
   <div class="container">
     <h2>Hizmetlerimiz</h2>
     <div class="grid">
-     <div class="card">
-  <div class="icon">💼</div>
-  <h3>Nitelikli Personel Temini</h3>
-  <p>AB dışı ülkelerden Almanya’ya kalifiye personel yerleştirme.</p>
-</div>
 
-<div class="card">
-  <div class="icon">🏢</div>
-  <h3>Yatırım & Şirket Kuruluşu</h3>
-  <p>Almanya’da şirket kurma ve yatırım danışmanlığı.</p>
-</div>
+      <div class="card">
+        <div class="icon">💼</div>
+        <h3>Nitelikli Personel Temini</h3>
+        <p>AB dışı ülkelerden Almanya’ya kalifiye personel yerleştirme.</p>
+      </div>
 
-<div class="card">
-  <div class="icon">🛂</div>
-  <h3>Vize & Oturum Süreçleri</h3>
-  <p>Çalışma vizesi ve hukuki süreç yönetimi.</p>
-</div>
+      <div class="card">
+        <div class="icon">🏢</div>
+        <h3>Yatırım & Şirket Kuruluşu</h3>
+        <p>Almanya’da şirket kurma ve yatırım danışmanlığı.</p>
+      </div>
 
+      <div class="card">
+        <div class="icon">🛂</div>
+        <h3>Vize & Oturum Süreçleri</h3>
+        <p>Çalışma vizesi ve hukuki süreç yönetimi.</p>
+      </div>
+
+    </div>
+  </div>
 </section>
 
-<section class="section stats">
+<section class="stats">
   <div class="container grid">
     <div>
       <div class="stat-number" data-target="150">0</div>
@@ -334,7 +321,7 @@ footer {
   </div>
 </section>
 
-<section class="section cta">
+<section class="cta">
   <div class="container">
     <h2>Güvenli Süreçle Avrupa’ya Açılın</h2>
     <a href="#" class="btn primary">Danışmanlık Talep Et</a>
@@ -347,18 +334,15 @@ footer {
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-
   const counters = document.querySelectorAll('.stat-number');
 
   counters.forEach(counter => {
-
     const target = +counter.getAttribute('data-target');
     let count = 0;
     const speed = 120;
 
     const updateCount = () => {
       const increment = target / speed;
-
       if (count < target) {
         count += increment;
         counter.innerText = Math.ceil(count);
@@ -370,16 +354,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     updateCount();
   });
-
 });
 </script>
 
-  
 </body>
 </html>
-
-
-
-
-
-
