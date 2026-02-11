@@ -1,65 +1,230 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <title>Kızılay Trust Trading GmbH</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kızılay Trust Trading GmbH</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+body {
+  margin:0;
+  font-family:'Inter',sans-serif;
+  color:#333;
+  scroll-behavior:smooth;
+}
+
+.container {
+  width:90%;
+  max-width:1200px;
+  margin:auto;
+}
+
+nav {
+  position:fixed;
+  width:100%;
+  background:white;
+  box-shadow:0 2px 10px rgba(0,0,0,0.05);
+  z-index:999;
+}
+
+nav .container {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 0;
+}
+
+nav a {
+  text-decoration:none;
+  color:#333;
+  margin-left:20px;
+  font-weight:600;
+}
+
+.hero {
+  background:linear-gradient(135deg,#2B4C7E,#1E355E);
+  color:white;
+  padding:180px 0 140px;
+  text-align:center;
+}
+
+.hero h1 {
+  font-size:56px;
+  margin-bottom:20px;
+}
+
+.hero p {
+  font-size:22px;
+  margin-bottom:40px;
+  opacity:0.9;
+}
+
+.btn {
+  padding:14px 32px;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:600;
+  margin:10px;
+  display:inline-block;
+  transition:0.3s;
+}
+
+.primary {
+  background:#C73A3A;
+  color:white;
+}
+
+.primary:hover {
+  background:#a92f2f;
+}
+
+.secondary {
+  border:2px solid white;
+  color:white;
+}
+
+.section {
+  padding:120px 0;
+  text-align:center;
+}
+
+.section h2 {
+  font-size:36px;
+  margin-bottom:60px;
+}
+
+.grid {
+  display:flex;
+  gap:30px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+.card {
+  background:#f5f5f5;
+  padding:40px 30px;
+  border-radius:12px;
+  width:300px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.05);
+  transition:0.3s;
+}
+
+.card:hover {
+  transform:translateY(-8px);
+}
+
+.stats {
+  background:#f5f5f5;
+}
+
+.stat-number {
+  font-size:48px;
+  font-weight:700;
+  color:#C73A3A;
+}
+
+.cta {
+  background:#2B4C7E;
+  color:white;
+}
+
+footer {
+  background:#1E355E;
+  color:white;
+  padding:30px 0;
+  text-align:center;
+  font-size:14px;
+}
+
+@media(max-width:768px){
+  .hero h1{font-size:36px;}
+}
+
+</style>
 </head>
+
 <body>
 
-<header class="hero">
+<nav>
+  <div class="container">
+    <strong>Kızılay Trust</strong>
+    <div>
+      <a href="#hizmetler">Hizmetler</a>
+      <a href="#surec">Süreç</a>
+      <a href="#iletisim">İletişim</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
   <div class="container">
     <h1>Avrupa’da Güvenilir İş ve Yatırım Ortağınız</h1>
     <p>AB dışı ülkelerden Almanya ve Avrupa’ya Personel, Yatırım ve Hukuki Danışmanlık</p>
-    <div class="buttons">
-      <a href="#" class="btn primary">İşverenim</a>
-      <a href="#" class="btn secondary">Çalışmak İstiyorum</a>
-    </div>
+    <a href="#" class="btn primary">İşverenim</a>
+    <a href="#" class="btn secondary">Çalışmak İstiyorum</a>
   </div>
-</header>
+</section>
 
-<section class="services">
+<section id="hizmetler" class="section">
   <div class="container">
     <h2>Hizmetlerimiz</h2>
     <div class="grid">
       <div class="card">
         <h3>Nitelikli Personel Temini</h3>
-        <p>AB dışı ülkelerden Almanya ve Avrupa’ya kalifiye personel yerleştirme ve süreç yönetimi.</p>
+        <p>AB dışı ülkelerden Almanya’ya kalifiye personel yerleştirme.</p>
       </div>
       <div class="card">
         <h3>Yatırım & Şirket Kuruluşu</h3>
-        <p>Almanya’da şirket kurulumu, yatırım planlaması ve hukuki danışmanlık.</p>
+        <p>Almanya’da şirket kurma ve yatırım danışmanlığı.</p>
       </div>
       <div class="card">
         <h3>Vize & Oturum Süreçleri</h3>
-        <p>Çalışma vizesi, aile birleşimi ve oturum izinlerinin profesyonel takibi.</p>
+        <p>Çalışma vizesi ve hukuki süreç yönetimi.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="process">
-  <div class="container">
-    <h2>Nasıl Çalışıyoruz?</h2>
-    <div class="steps">
-      <div>1️⃣ Ön Analiz</div>
-      <div>2️⃣ Eşleştirme</div>
-      <div>3️⃣ Resmi Süreç</div>
-      <div>4️⃣ Operasyon & Destek</div>
+<section class="section stats">
+  <div class="container grid">
+    <div>
+      <div class="stat-number">150+</div>
+      <p>Başarılı Yerleştirme</p>
+    </div>
+    <div>
+      <div class="stat-number">20+</div>
+      <p>Partner Firma</p>
+    </div>
+    <div>
+      <div class="stat-number">8+</div>
+      <p>Ülkede Operasyon</p>
     </div>
   </div>
 </section>
 
-<section class="cta">
+<section id="surec" class="section">
+  <div class="container">
+    <h2>Nasıl Çalışıyoruz?</h2>
+    <div class="grid">
+      <div class="card">1️⃣ Ön Analiz</div>
+      <div class="card">2️⃣ Eşleştirme</div>
+      <div class="card">3️⃣ Resmi Süreç</div>
+      <div class="card">4️⃣ Operasyon & Destek</div>
+    </div>
+  </div>
+</section>
+
+<section class="section cta">
   <div class="container">
     <h2>Güvenli Süreçle Avrupa’ya Açılın</h2>
     <a href="#" class="btn primary">Danışmanlık Talep Et</a>
   </div>
 </section>
 
-<footer>
+<footer id="iletisim">
   <p>© 2026 Kızılay Trust Trading GmbH – Köln, Almanya</p>
 </footer>
 
